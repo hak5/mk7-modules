@@ -1,0 +1,9 @@
+{
+    "name": "sslsplit",
+    "title": "SSLsplit",
+    "description": "SSLsplit is a tool for man-in-the-middle attacks against SSL and TLS encrypted network connections.",
+    "version": "1.1",
+    "author": "TW-D",
+    "firmware_required": "1.0.0"
+}
+

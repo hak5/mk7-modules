@@ -1,0 +1,52 @@
+{
+    "name": "sslsplit",
+    "version": "0.0.0",
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build",
+        "test": "ng test",
+        "lint": "ng lint",
+        "e2e": "ng e2e"
+    },
+    "private": true,
+    "dependencies": {
+        "@angular/animations": "~9.1.11",
+        "@angular/cdk": "^9.2.4",
+        "@angular/common": "~9.1.11",
+        "@angular/compiler": "~9.1.11",
+        "@angular/core": "~9.1.11",
+        "@angular/flex-layout": "^9.0.0-beta.31",
+        "@angular/forms": "~9.1.11",
+        "@angular/material": "^9.2.4",
+        "@angular/platform-browser": "~9.1.11",
+        "@angular/platform-browser-dynamic": "~9.1.11",
+        "@angular/router": "~9.1.11",
+        "rxjs": "~6.5.5",
+        "tslib": "^1.10.0",
+        "zone.js": "~0.10.2"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "~0.901.8",
+        "@angular-devkit/build-ng-packagr": "~0.901.8",
+        "@angular/cli": "~9.1.8",
+        "@angular/compiler-cli": "~9.1.11",
+        "@angular/language-service": "~9.1.11",
+        "@types/jasmine": "~3.5.10",
+        "@types/jasminewd2": "~2.0.3",
+        "@types/node": "^12.11.1",
+        "codelyzer": "^5.1.2",
+        "jasmine-core": "~3.5.0",
+        "jasmine-spec-reporter": "~5.0.2",
+        "karma": "~5.1.0",
+        "karma-chrome-launcher": "~3.1.0",
+        "karma-coverage-istanbul-reporter": "~3.0.3",
+        "karma-jasmine": "~3.3.1",
+        "karma-jasmine-html-reporter": "^1.4.0",
+        "ng-packagr": "^9.1.5",
+        "protractor": "~7.0.0",
+        "ts-node": "~8.10.2",
+        "tslint": "~6.1.2",
+        "typescript": "^3.6.5"
+    }
+}

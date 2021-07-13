@@ -1,0 +1,101 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>SSLsplit</mat-card-title>
+        <mat-card-subtitle>Transparent SSL/TLS interception</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+        <div>
+            <p>
+                <u>Network</u>
+            </p>
+            <ul>
+                <li>
+                    <b>Internet</b> : {{ (network_connected) ? 'Connected' : 'Not connected' }}
+                </li>
+            </ul>
+        </div>
+
+        <div *ngIf="network_status">
+            <p>
+                <u>Dependency</u>
+            </p>
+            <ul>
+                <li>
+                    <b>SSLsplit</b> : {{ (dependency_sslsplit) ? 'Installed' : 'Not installed' }}
+                </li>
+            </ul>
+            <button *ngIf="!dependency_sslsplit" mat-flat-button color="warn" (click)="install_dependencies();">
+                <span *ngIf="dependencies_status">Installation</span>
+                <span *ngIf="!dependencies_status">
+                    <mat-spinner [diameter]="24"></mat-spinner>
+                </span>
+            </button>
+        </div>
+
+        <div *ngIf="network_status && dependency_sslsplit">
+            <p>
+                <u>Encryption</u>
+            </p>
+            <ul>
+                <li>
+                    <b>Certificate</b> : {{ (certificate_sslsplit) ? 'Generated' : 'Not generated' }}
+                </li>
+            </ul>
+            <button *ngIf="!certificate_sslsplit" mat-flat-button color="warn" (click)="generate_certificate();">
+                <span *ngIf="certificate_status">Generate</span>
+                <span *ngIf="!certificate_status">
+                    <mat-spinner [diameter]="24"></mat-spinner>
+                </span>
+            </button>
+        </div>
+
+        <div *ngIf="network_status && dependency_sslsplit && certificate_sslsplit">
+            <p>
+                <u>SSLsplit</u>
+            </p>
+            <p>
+                <button *ngIf="!sslsplit_status" mat-flat-button color="accent" (click)="start_sslsplit();">
+                    <span>Start</span>
+                </button>
+            </p>
+            <p>
+                <button *ngIf="sslsplit_status" mat-flat-button color="warn" (click)="stop_sslsplit();">
+                    <span>Stop</span>
+                </button>
+            </p>
+        </div>
+
+        <div *ngIf="logs_status">
+
+            <mat-form-field appearance="fill" [style.width.%]="100">
+                <mat-label>Filter</mat-label>
+                <input matInput placeholder="password">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" [style.width.%]="100">
+                <mat-label>SSLsplit log output</mat-label>
+                <textarea matTextareaAutosize matInput>{{ sslsplit_output }}</textarea>
+            </mat-form-field>
+
+            <mat-nav-list>
+                <mat-list-item *ngFor="let log of logs">
+                    <span matLine>{{log}}</span>
+                    <button mat-icon-button (click)="view_log(log);">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="download_log(log);">
+                        <mat-icon>attachment</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="delete_log(log);">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-nav-list>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>
