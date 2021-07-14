@@ -1,13 +1,13 @@
 <div class="locate-center-card">
     <mat-card class="locate-card">
-        <mat-card-title>Geolocate IP Address</mat-card-title>
+        <mat-card-title>Geolocate IP or Domain</mat-card-title>
         <mat-card-content class="locate-card-content">
             <mat-form-field class="locate-lookup-field">
-                <mat-label> IP address. </mat-label>
+                <mat-label> IP address / Domain. </mat-label>
                 <input matInput [(ngModel)]="userInput" />
             </mat-form-field>
             <div *ngIf="!validIP">
-                <span><strong>Please enter a valid IP address or domain name!</strong></span>
+                <span><strong>Please enter a valid IP address or domain!</strong></span>
             </div>
             <div *ngIf="lookup_ip" class="locate-results">
                 <br />
@@ -48,7 +48,7 @@
             </div>
 
             <button mat-flat-button class="macinfo-lookup-button" color="accent" (click)="locate_ip()">
-                <span *ngIf="!isLoading">Locate IP</span>
+                <span *ngIf="!isLoading">Locate IP / Domain</span>
                 <span class="spinner" *ngIf="isLoading">
                     <mat-spinner diameter="20"></mat-spinner>
                 </span>
